@@ -1,0 +1,36 @@
+#map1 {
+	width: 100%;
+	height: 800px;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #e3e3e6;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #3d3d3d;
+	font-size: 100%;
+	/* 16px is default browser size */
+
+}
+
+.label {
+	font-size: 1.2em;
+	font-weight: 700;
+	color: rgba(0, 0, 0, 0);
+}
+
+/* In your CSS file or within a <style> tag */
+.leaflet-control-custom {
+    padding: 5px; /* Adjust as needed */
+    background-color: white; /* Or any styling you want */
+    border-radius: 5px;
+    /* Other styling... */
+}
+
+/* Position it in the middle of the top */
+.leaflet-top .leaflet-control-custom { /* Target controls in the top container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    top: 10px;  /* Adjust vertical position from the top */
+}
