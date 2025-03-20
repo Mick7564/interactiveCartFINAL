@@ -16,22 +16,13 @@ var map1 = L.map('map1', options);
 var basemap_source =
     'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png'
 
-    // Add a title in the top center of the map
-    var title = L.control({ position: 'topleft' });
-
-    title.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'map-title');
-        div.innerHTML = '<h2 style="color: white; text-align: center;">Power Plants Map</h2>';
-        return div;
-    };
-
-    title.addTo(map1);
 
 // Leaflet providers attributes
 var basemap_options = {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     subdomains: 'abcd',
-    maxZoom: 19
+    maxZoom: 11,
+    minZoom: 4
 };
 
 // Add a title above the toggle buttons
@@ -68,7 +59,7 @@ var colors = {
     "Other" : 'grey',
     "Other Fossil Gasses" : 'darkred',
     "Biomass" : 'brown',
-    "Wood" : 'darkyellow'
+    "Wood" : 'indigo'
 };
 
 var curr_highlight_color = '';
@@ -171,6 +162,24 @@ fuelSourceControl.onAdd = function (map) {
 
     return div;
 };
+var backgroundControl = L.control({ position: 'topright' });
+
+// Create a control for the button background
+backgroundControl.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'background-control');
+    div.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    div.style.padding = '10px'; // Adjusted padding to make the shape smaller
+    div.style.borderRadius = '5px'; // Changed border radius to 5px to make it a rectangle
+    div.style.position = 'absolute';
+    div.style.top = '0';
+    div.style.right = '-7px';
+    div.style.zIndex = '0'; // Set zIndex to 0 to place it behind the toggle buttons
+    div.style.height = '375px'; // Adjust the height
+    div.style.width = '150px'; // Adjust the width
+    return div;
+};
+
+backgroundControl.addTo(map1);
 var style = document.createElement('style');
 style.innerHTML = `
     .fuel-source-control label {

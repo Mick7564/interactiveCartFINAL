@@ -1,11 +1,11 @@
 #map1 {
 	width: 100%;
-	height: 800px;
+	height: 650px;
 }
 body {
-	margin: 0px;
+	margin: 50px;
 	padding: 0px;
-	background: #e3e3e6;
+	background: #7b7b7b;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	color: #3d3d3d;
@@ -34,3 +34,4 @@ body {
     transform: translateX(-50%); /* Adjust for centering */
     top: 10px;  /* Adjust vertical position from the top */
 }
+
